@@ -8,3 +8,16 @@ before-install:
 script:
   - docker run amankhare/react npm run test -- --coverage
 
+deploy:
+  provider: elasticbeanstalk
+  region: ap-south-1
+  app: "Docker-react"
+  env: "Dockerreact-env"
+  bucket_name: "elasticbeanstalk-ap-south-1-348547645249"
+  path: "Docker-react"
+  on:
+    branch: master
+  access_key_id: "$aws_access_key"
+  secret_access_key:
+    secure: "$aws_secret_key"`
+        
